@@ -1,0 +1,18 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Build and test results
+TestResults/
+
+# NuGet packages
+packages/
+
+# Operating system files
+.DS_Store
+Thumbs.db
