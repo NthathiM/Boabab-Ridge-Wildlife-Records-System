@@ -1,4 +1,5 @@
 Baobab Ridge Wildlife Records System
+
 1. Project Overview
 
 The Records System is a C# windows forms desktop application developed for the PRG 282 Project.
@@ -7,12 +8,14 @@ The purpose of the system is to assist Baobab Ridge Wildlife Rehabilitation Cent
 We made use of text files instead of a database.
 
 2.Project Members
+
 Ruvan Nienaber 603284
 Michaela Snyman 602276
 Nthathi Mpyana 604869
 Wiets Swart 603352
 
 3. Features(upcoming)(10/14/2026)
+   
 Add Animals: Capture an animal's ID, name, species, age, and recovery score.
 View Animals: Display stored animal records in a data grid.
 Update Animals: Edit an existing animal's details while keeping its ID unchanged.
@@ -23,6 +26,7 @@ Input Validation: Check required fields, ID format, text length, and numeric ran
 File Storage: Read and write animal records using text files.
 
 4. Limitations
+   
 Text files are used instead of a database.
 Data is stored locally so backups need to be managed by users.
 The application is strictly a windows desktop application.
