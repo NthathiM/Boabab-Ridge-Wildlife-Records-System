@@ -79,5 +79,25 @@ namespace Baobab_Ridge_System
         {
 
         }
+
+        private void dgvAnimals_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //tells which row has been clicked + prevent clicking of the headers
+            if (e.RowIndex < 0) {  return; } 
+
+            //copying values from specific row into its maytching texbox
+            txtAnimalID.Text = dgvAnimals.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtName.Text = dgvAnimals.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtSpecies.Text = dgvAnimals.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtAge.Text = dgvAnimals.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtRecoveryScore.Text = dgvAnimals.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtStatus.Text = dgvAnimals.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtHousing.Text = dgvAnimals.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+            //field that are readonly not supposed to be touched by user
+            txtAnimalID.ReadOnly = true;
+            btnAdd.Enabled = false; //disables it so can't be clicked
+            btnSaveChanges.Enabled = true;  //can click it
+        }
     }
 }

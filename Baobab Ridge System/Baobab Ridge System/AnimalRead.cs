@@ -70,5 +70,53 @@ namespace Baobab_Ridge_System
             }
             return listOfAnimals;   
         }
+
+        //to update one animal record while still keeping the other file lines.
+        public void UpdateAnimal(Animal updatedAnimal)
+        {
+            if(updatedAnimal == null)
+            {
+                throw new ArgumentNullException(nameof(updatedAnimal));
+            }
+
+            //read the og lines to keep the file's existing records
+            List<string> lines = File.ReadAllLines(filepath).ToList();
+
+            int matchingIndex = -1;
+
+
+            //find record using its id and also ignore letter case
+            for (int i = 0; i < lines.Count; i++)
+            {
+                string[] items = lines[i].Split('|');
+            
+                if(items.Length == 7 && items[0].Trim().Equals(updatedAnimal.AnimalID,StringComparison.OrdinalIgnoreCase))
+                {
+                    matchingIndex = i;
+                    break;
+                }
+            }
+
+            //stop if animal doen't exist
+            if(matchingIndex == -1)
+            {
+                throw new InvalidOperationException("Animal could not be found.");
+            }
+
+            //replaces only the match with the updated or new values
+            lines[matchingIndex] = string.Join("|",
+                updatedAnimal.AnimalID,
+                updatedAnimal.Name,
+                updatedAnimal.Species,
+                updatedAnimal.Age,
+                updatedAnimal.RecoveryScore,
+                updatedAnimal.Status,
+                updatedAnimal.HousingUnit
+                 );
+
+            File.WriteAllLines( filepath, lines );  //save the records without changing their order
+        }
+
+
     }
 }
