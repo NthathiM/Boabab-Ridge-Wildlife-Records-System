@@ -33,7 +33,7 @@ namespace Baobab_Ridge_System
             dgvAnimals.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAnimals.EditMode = DataGridViewEditMode.EditProgrammatically;
 
-            dgvAnimals.Dock = DockStyle.Fill;
+            dgvAnimals.Dock = DockStyle.None;
 
             dgvAnimals.Columns.Add("AnimalID", "Animal ID");
             dgvAnimals.Columns.Add("Name", "Name");
