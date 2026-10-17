@@ -10,7 +10,8 @@ namespace Baobab_Ridge_System
 {
     internal class AnimalRead
     {
-        public string filepath = Path.Combine(Application.StartupPath, "Animals.txt");
+        public string filepath = Path.Combine(Directory.GetParent(Application.StartupPath).Parent.FullName, "animals.txt");
+        
 
         public List<Animal> readAnimal( out int skippedLines)
         {

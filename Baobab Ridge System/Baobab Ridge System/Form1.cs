@@ -153,7 +153,9 @@ namespace Baobab_Ridge_System
             }
 
             Animal updatedAnimal = new Animal(txtAnimalID.Text,txtName.Text.Trim(), txtSpecies.Text.Trim(),age,recoveryScore);
+
             AnimalRead reader = new AnimalRead();
+            MessageBox.Show(reader.filepath);
             reader.UpdateAnimal(updatedAnimal);
 
             MessageBox.Show("Animal record updated sucessfully");
