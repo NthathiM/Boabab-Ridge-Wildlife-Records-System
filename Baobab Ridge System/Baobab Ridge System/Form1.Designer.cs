@@ -92,7 +92,7 @@
             this.txtSearchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchID.Location = new System.Drawing.Point(45, 90);
             this.txtSearchID.Name = "txtSearchID";
-            this.txtSearchID.Size = new System.Drawing.Size(756, 34);
+            this.txtSearchID.Size = new System.Drawing.Size(756, 27);
             this.txtSearchID.TabIndex = 3;
             // 
             // btnSearch
@@ -104,6 +104,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClear
             // 
@@ -134,6 +135,7 @@
             this.btnSaveChanges.TabIndex = 20;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // label10
             // 
@@ -175,7 +177,7 @@
             this.txtStatus.MaxLength = 3;
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(403, 35);
+            this.txtStatus.Size = new System.Drawing.Size(403, 28);
             this.txtStatus.TabIndex = 13;
             // 
             // label8
@@ -213,7 +215,7 @@
             this.txtRecoveryScore.Location = new System.Drawing.Point(6, 193);
             this.txtRecoveryScore.MaxLength = 3;
             this.txtRecoveryScore.Name = "txtRecoveryScore";
-            this.txtRecoveryScore.Size = new System.Drawing.Size(403, 35);
+            this.txtRecoveryScore.Size = new System.Drawing.Size(403, 28);
             this.txtRecoveryScore.TabIndex = 9;
             // 
             // txtSpecies
@@ -222,7 +224,7 @@
             this.txtSpecies.Location = new System.Drawing.Point(6, 126);
             this.txtSpecies.MaxLength = 30;
             this.txtSpecies.Name = "txtSpecies";
-            this.txtSpecies.Size = new System.Drawing.Size(403, 35);
+            this.txtSpecies.Size = new System.Drawing.Size(403, 28);
             this.txtSpecies.TabIndex = 8;
             // 
             // txtName
@@ -231,7 +233,7 @@
             this.txtName.Location = new System.Drawing.Point(431, 66);
             this.txtName.MaxLength = 30;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(443, 35);
+            this.txtName.Size = new System.Drawing.Size(443, 28);
             this.txtName.TabIndex = 7;
             // 
             // txtAnimalID
@@ -240,7 +242,7 @@
             this.txtAnimalID.Location = new System.Drawing.Point(6, 66);
             this.txtAnimalID.MaxLength = 7;
             this.txtAnimalID.Name = "txtAnimalID";
-            this.txtAnimalID.Size = new System.Drawing.Size(403, 35);
+            this.txtAnimalID.Size = new System.Drawing.Size(403, 28);
             this.txtAnimalID.TabIndex = 6;
             // 
             // label

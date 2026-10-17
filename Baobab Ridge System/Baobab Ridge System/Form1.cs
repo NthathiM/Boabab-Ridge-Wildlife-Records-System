@@ -99,5 +99,85 @@ namespace Baobab_Ridge_System
             btnAdd.Enabled = false; //disables it so can't be clicked
             btnSaveChanges.Enabled = true;  //can click it
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchID = txtSearchID.Text.Trim();
+
+            if(searchID == "")
+            {
+                MessageBox.Show("Please enter an Animal ID.");
+                return;
+            }
+
+            foreach(DataGridViewRow row in dgvAnimals.Rows)
+            {
+                if (row.Cells[0].Value.ToString().ToLower() == searchID.ToLower())
+                {
+                    txtAnimalID.Text = row.Cells[0].Value.ToString();
+                    txtName.Text = row.Cells[1].Value.ToString();
+                    txtSpecies.Text = row.Cells[2].Value.ToString();
+                    txtAge.Text = row.Cells[3].Value.ToString();
+                    txtRecoveryScore.Text = row.Cells[4].Value.ToString();
+                    txtStatus.Text = row.Cells[5].Value.ToString();
+                    txtHousing.Text = row.Cells[6].Value.ToString();
+
+                    txtAnimalID.ReadOnly = true;
+                    btnAdd.Enabled = false;
+                    btnSaveChanges.Enabled = true;
+
+                    return;
+                }
+             
+            }
+            MessageBox.Show("Animal with that ID does not exist.");
+
+
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            if(txtAnimalID.Text=="" || txtName.Text =="" || txtSpecies.Text =="" || txtAge.Text == "" || txtRecoveryScore.Text == "")
+            {
+                MessageBox.Show("Please fill in all required fields");
+                return;
+            }
+
+            int age;
+            int recoveryScore;
+
+            if(!int.TryParse(txtAge.Text, out age) || !int.TryParse(txtRecoveryScore.Text, out recoveryScore))
+            {
+                MessageBox.Show("Age and Recovery must be whole numbers");
+                return;
+            }
+
+            Animal updatedAnimal = new Animal(txtAnimalID.Text,txtName.Text.Trim(), txtSpecies.Text.Trim(),age,recoveryScore);
+            AnimalRead reader = new AnimalRead();
+            reader.UpdateAnimal(updatedAnimal);
+
+            MessageBox.Show("Animal record updated sucessfully");
+            LoadAnimals();
+            ClearForm();
+
+        }
+
+        private void ClearForm()
+        {
+            txtAnimalID.Clear();
+            txtName.Clear();
+            txtSpecies.Clear();
+            txtAge.Clear();
+            txtRecoveryScore.Clear();
+            txtStatus.Clear();
+            txtHousing.Clear();
+            txtSearchID.Clear();
+
+            txtAnimalID.ReadOnly = false;
+            btnAdd.Enabled = true;
+            btnSaveChanges.Enabled = false;
+
+            dgvAnimals.ClearSelection();
+        }
     }
 }
