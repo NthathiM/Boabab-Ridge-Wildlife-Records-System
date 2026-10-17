@@ -109,29 +109,31 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(596, 460);
+            this.btnClear.Location = new System.Drawing.Point(517, 467);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(83, 49);
+            this.btnClear.Size = new System.Drawing.Size(129, 34);
             this.btnClear.TabIndex = 18;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(685, 460);
+            this.btnAdd.Location = new System.Drawing.Point(652, 467);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(106, 49);
+            this.btnAdd.Size = new System.Drawing.Size(139, 34);
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Add Animal";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSaveChanges
             // 
             this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.Location = new System.Drawing.Point(797, 460);
+            this.btnSaveChanges.Location = new System.Drawing.Point(797, 467);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(168, 49);
+            this.btnSaveChanges.Size = new System.Drawing.Size(168, 34);
             this.btnSaveChanges.TabIndex = 20;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = true;

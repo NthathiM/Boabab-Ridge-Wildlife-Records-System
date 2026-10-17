@@ -181,5 +181,15 @@ namespace Baobab_Ridge_System
 
             dgvAnimals.ClearSelection();
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
