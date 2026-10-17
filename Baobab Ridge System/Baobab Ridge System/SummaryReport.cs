@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Baobab_Ridge_System
 {
-    //calculates the animals summery and saves itto summery.txt;
+    // Calculates the animal summary and saves it to summery.txt;
     internal class SummaryReport
     {
+        public int TotalAnimals { get; set; }
+        public double? AvgAge { get; set; }
+        public double? AvgRecoveryScore { get; set; }
+       public Dictionary<string, int> StatusCounts {  get; set; } = new Dictionary<string, int>();
+
     }
 }
