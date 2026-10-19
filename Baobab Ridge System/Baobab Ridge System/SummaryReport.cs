@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -9,14 +8,17 @@ using System.Threading.Tasks;
 
 namespace Baobab_Ridge_System
 {
-    // Calculates the animal summary and saves it to summery.txt;
+    // Calculates the animal summary and saves it to summary.txt
     internal class SummaryReport
     {
+        // holds the txt file
+        private const string SummaryFileName = "summary.txt";
         public int TotalAnimals { get; set; }
         public double? AvgAge { get; set; }
         public double? AvgRecoveryScore { get; set; }
        public Dictionary<string, int> StatusCounts {  get; set; } = new Dictionary<string, int>();
         string[] Statuses = { "Critical", "Serious", "Stable", "Recovering", "Release-Ready" };
+
         //resets status counts;
         private void ResetStatusCounts()
         {
@@ -28,12 +30,12 @@ namespace Baobab_Ridge_System
                 StatusCounts[status] = 0;
             }
         }
-        // calculates the avg of the age and recovery score
+        // calculates the avg of the age and recovery score and sets the totals
         public void Calculate(List <Animal> animals)
         { 
             ResetStatusCounts();
             TotalAnimals = animals.Count;
-            //it checks that there is actualy animals;
+            //it checks that there is actualy animals
             if (TotalAnimals == 0)
             {
                 AvgAge = null;
@@ -47,12 +49,16 @@ namespace Baobab_Ridge_System
             {
                 ageSum += animal.Age;
                 ageRecoveryScore += animal.RecoveryScore;
-                StatusCounts[animal.Status]++;
+                if (StatusCounts.ContainsKey(animal.Status))
+                {
+                    StatusCounts[animal.Status]++;
+                }
+               
             }
             AvgAge = (double)ageSum / TotalAnimals;
             AvgRecoveryScore = (double)ageRecoveryScore / TotalAnimals;
         }
-        
+        //builds reports text
         private string BuildReportText ()
         {
             StringBuilder report = new StringBuilder ();
@@ -73,9 +79,30 @@ namespace Baobab_Ridge_System
 
             return report.ToString();
         }
+        // formats avg to 2 decimal places
         private string FormatAverage(double? value)
         {
             return value.HasValue? value.Value.ToString("F2",CultureInfo.InvariantCulture):"N/A";
+        }
+        
+
+        // saves the summery on summary.txt
+        public string SaveSummary()
+        {
+            try
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,SummaryFileName);
+                File.WriteAllText(path,BuildReportText());
+                return "";
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return "the summary.txt file is a read only file";
+            }
+            catch (IOException)
+            {
+                return "the summary file is open in a different program";
+            }
         }
     }
 }
