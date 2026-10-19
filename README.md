@@ -14,7 +14,7 @@ Michaela Snyman 602276
 Nthathi Mpyana 604869
 Wiets Swart 603352
 
-3. Features(upcoming)(10/14/2026)
+3. Features
    
 Add Animals: Capture an animal's ID, name, species, age, and recovery score.
 View Animals: Display stored animal records in a data grid.
