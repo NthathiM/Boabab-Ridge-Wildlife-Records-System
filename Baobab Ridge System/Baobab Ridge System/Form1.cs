@@ -137,30 +137,47 @@ namespace Baobab_Ridge_System
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            if(txtAnimalID.Text=="" || txtName.Text =="" || txtSpecies.Text =="" || txtAge.Text == "" || txtRecoveryScore.Text == "")
+            if(string.IsNullOrWhiteSpace(txtAnimalID.Text) || string.IsNullOrWhiteSpace(txtName.Text) || 
+               string.IsNullOrWhiteSpace(txtSpecies.Text) || string.IsNullOrWhiteSpace(txtAge.Text) ||
+               string.IsNullOrWhiteSpace(txtRecoveryScore.Text))
             {
-                MessageBox.Show("Please fill in all required fields");
+                MessageBox.Show("Please fill in all required fields","Validation Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 
-            int age;
-            int recoveryScore;
 
-            if(!int.TryParse(txtAge.Text, out age) || !int.TryParse(txtRecoveryScore.Text, out recoveryScore))
+            if(!int.TryParse(txtAge.Text.Trim(), out int age) || !int.TryParse(txtRecoveryScore.Text.Trim(), out int recoveryScore))
             {
-                MessageBox.Show("Age and Recovery must be whole numbers");
+                MessageBox.Show("Age and Recovery Score must be whole numbers","Validation Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 
-            Animal updatedAnimal = new Animal(txtAnimalID.Text,txtName.Text.Trim(), txtSpecies.Text.Trim(),age,recoveryScore);
+            if(age <0 || recoveryScore <0 || age>100 || recoveryScore > 100)
+            {
+                MessageBox.Show("Age or Recovery Score cannot be negative.They must be between 0 and 100.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            AnimalRead reader = new AnimalRead();
-            MessageBox.Show(reader.filepath);
-            reader.UpdateAnimal(updatedAnimal);
+            try
+            {
+                Animal updatedAnimal = new Animal(txtAnimalID.Text, txtName.Text.Trim(), txtSpecies.Text.Trim(), age, recoveryScore);
 
-            MessageBox.Show("Animal record updated sucessfully");
-            LoadAnimals();
-            ClearForm();
+                AnimalRead reader = new AnimalRead();
+                reader.UpdateAnimal(updatedAnimal);
+
+                MessageBox.Show("Animal record updated sucessfully","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                LoadAnimals();
+                ClearForm();
+            }
+            catch(ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Validation error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Couldn't update animal record. \n{ex.Message}","Update Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
 
         }
 

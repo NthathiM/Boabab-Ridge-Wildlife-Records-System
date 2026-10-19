@@ -80,8 +80,21 @@ namespace Baobab_Ridge_System
                 throw new ArgumentNullException(nameof(updatedAnimal));
             }
 
-            //read the og lines to keep the file's existing records
+            //check file existence
+            if (!File.Exists(filepath))
+            {
+                throw new FileNotFoundException("Animal data file could not be found.", filepath);
+            }
+
+
+
+            //read the og lines to keep the file's existing records and check if any records are there
             List<string> lines = File.ReadAllLines(filepath).ToList();
+
+            if(lines.Count == 0)
+            {
+                throw new InvalidOperationException("Animal data file is empty. There are no records to update.");
+            }
 
             int matchingIndex = -1;
 
@@ -101,14 +114,14 @@ namespace Baobab_Ridge_System
             //stop if animal doen't exist
             if(matchingIndex == -1)
             {
-                throw new InvalidOperationException("Animal could not be found.");
+                throw new InvalidOperationException("Animal ID could not be found. Therefore no records were changed!");
             }
 
-            //replaces only the match with the updated or new values
+            //replaces only the matching record with the updated or new values
             lines[matchingIndex] = string.Join("|",
-                updatedAnimal.AnimalID,
-                updatedAnimal.Name,
-                updatedAnimal.Species,
+                updatedAnimal.AnimalID.Trim(),
+                updatedAnimal.Name.Trim(),
+                updatedAnimal.Species.Trim(),
                 updatedAnimal.Age,
                 updatedAnimal.RecoveryScore,
                 updatedAnimal.Status,
