@@ -60,14 +60,14 @@ namespace Baobab_Ridge_System
                     dgvAnimals.Rows.Add(animal.AnimalID, animal.Name, animal.Species, animal.Age, animal.RecoveryScore, animal.Status, animal.HousingUnit);
                 }
 
-                if (skippedLines > 0 )
+                if (skippedLines > 0)
                 {
-                    MessageBox.Show(skippedLines + " invalid entries were skipped while loading the file.", "Invalid Entries",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(skippedLines + " invalid entries were skipped while loading the file.", "Invalid Entries", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch(IOException)
+            catch (IOException)
             {
-                MessageBox.Show("The animal file could not be read or created. Check that the file is not in use and try again.","File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The animal file could not be read or created. Check that the file is not in use and try again.", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (UnauthorizedAccessException)
             {
@@ -83,7 +83,7 @@ namespace Baobab_Ridge_System
         private void dgvAnimals_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //tells which row has been clicked + prevent clicking of the headers
-            if (e.RowIndex < 0) {  return; } 
+            if (e.RowIndex < 0) { return; }
 
             //copying values from specific row into its maytching texbox
             txtAnimalID.Text = dgvAnimals.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -104,13 +104,13 @@ namespace Baobab_Ridge_System
         {
             string searchID = txtSearchID.Text.Trim();
 
-            if(searchID == "")
+            if (searchID == "")
             {
                 MessageBox.Show("Please enter an Animal ID.");
                 return;
             }
 
-            foreach(DataGridViewRow row in dgvAnimals.Rows)
+            foreach (DataGridViewRow row in dgvAnimals.Rows)
             {
                 if (row.Cells[0].Value.ToString().ToLower() == searchID.ToLower())
                 {
@@ -128,7 +128,7 @@ namespace Baobab_Ridge_System
 
                     return;
                 }
-             
+
             }
             MessageBox.Show("Animal with that ID does not exist.");
 
@@ -137,22 +137,22 @@ namespace Baobab_Ridge_System
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(txtAnimalID.Text) || string.IsNullOrWhiteSpace(txtName.Text) || 
+            if (string.IsNullOrWhiteSpace(txtAnimalID.Text) || string.IsNullOrWhiteSpace(txtName.Text) ||
                string.IsNullOrWhiteSpace(txtSpecies.Text) || string.IsNullOrWhiteSpace(txtAge.Text) ||
                string.IsNullOrWhiteSpace(txtRecoveryScore.Text))
             {
-                MessageBox.Show("Please fill in all required fields","Validation Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all required fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
 
-            if(!int.TryParse(txtAge.Text.Trim(), out int age) || !int.TryParse(txtRecoveryScore.Text.Trim(), out int recoveryScore))
+            if (!int.TryParse(txtAge.Text.Trim(), out int age) || !int.TryParse(txtRecoveryScore.Text.Trim(), out int recoveryScore))
             {
-                MessageBox.Show("Age and Recovery Score must be whole numbers","Validation Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Age and Recovery Score must be whole numbers", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if(age <0 || recoveryScore <0 || age>100 || recoveryScore > 100)
+            if (age < 0 || recoveryScore < 0 || age > 100 || recoveryScore > 100)
             {
                 MessageBox.Show("Age or Recovery Score cannot be negative.They must be between 0 and 100.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -165,18 +165,18 @@ namespace Baobab_Ridge_System
                 AnimalRead reader = new AnimalRead();
                 reader.UpdateAnimal(updatedAnimal);
 
-                MessageBox.Show("Animal record updated sucessfully","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Animal record updated sucessfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LoadAnimals();
                 ClearForm();
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Validation error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Couldn't update animal record. \n{ex.Message}","Update Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Couldn't update animal record. \n{ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -208,5 +208,48 @@ namespace Baobab_Ridge_System
         {
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+         // the animila specified is deleted
+        
+            if (dgvAnimals.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an animal in the grid first.");
+                return;
+            }
+
+            string id = dgvAnimals.SelectedRows[0].Cells[0].Value.ToString();
+            string name = dgvAnimals.SelectedRows[0].Cells[1].Value.ToString();
+
+            DialogResult answer = MessageBox.Show(
+                "Delete " + id + " (" + name + ")? This cannot be undone.",
+                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (answer != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                AnimalRead reader = new AnimalRead();
+
+                reader.DeleteAnimal(id);
+                LoadAnimals();
+                ClearForm();
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("the file is locked");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("The program does not have premission to change the animals.txtfile");
+            }
+        }
+
     }
+    
 }
