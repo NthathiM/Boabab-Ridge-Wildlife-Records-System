@@ -38,7 +38,6 @@
             btnSaveChanges = new System.Windows.Forms.Button();
             label10 = new System.Windows.Forms.Label();
             grpAnimalDetails = new System.Windows.Forms.GroupBox();
-            label9 = new System.Windows.Forms.Label();
             txtStatus = new System.Windows.Forms.TextBox();
             label8 = new System.Windows.Forms.Label();
             txtHousing = new System.Windows.Forms.TextBox();
@@ -171,7 +170,6 @@
             // 
             // grpAnimalDetails
             // 
-            grpAnimalDetails.Controls.Add(label9);
             grpAnimalDetails.Controls.Add(txtStatus);
             grpAnimalDetails.Controls.Add(label8);
             grpAnimalDetails.Controls.Add(txtHousing);
@@ -193,15 +191,6 @@
             grpAnimalDetails.TabIndex = 22;
             grpAnimalDetails.TabStop = false;
             grpAnimalDetails.Text = "Animal Details";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(3, 29);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(67, 27);
-            label9.TabIndex = 14;
-            label9.Text = "label9";
             // 
             // txtStatus
             // 
@@ -600,7 +589,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btngenerateSummary;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
