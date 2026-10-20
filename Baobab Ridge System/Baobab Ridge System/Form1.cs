@@ -206,7 +206,124 @@ namespace Baobab_Ridge_System
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = txtAnimalID.Text.Trim().ToUpper();
+            string name = txtName.Text.Trim();
+            string species = txtSpecies.Text.Trim();
+            string ageText = txtAge.Text.Trim();
+            string scoreText = txtRecoveryScore.Text.Trim();
 
+            // Animal ID: format
+            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^WR-[0-9]{4}$"))
+            {
+                ShowAddError("Animal ID must be 'WR-' followed by exactly 4 digits (e.g., WR-0007).", txtAnimalID);
+                return;
+            }
+
+            AnimalRead reader = new AnimalRead();
+
+            // Animal ID: unique
+            try
+            {
+                foreach (Animal existing in reader.readAnimal(out int skipped))
+                {
+                    if (existing.AnimalID.Equals(id, StringComparison.OrdinalIgnoreCase))
+                    {
+                        ShowAddError("Animal ID '" + id + "' already exists. IDs must be unique.", txtAnimalID);
+                        return;
+                    }
+                }
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("The animal file could not be read. Check that it is not in use and try again.", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("The application does not have permission to access animals.txt.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Name
+            if (name.Length < 1 || name.Length > 30)
+            {
+                ShowAddError("Name is required and must be 1 to 30 characters.", txtName);
+                return;
+            }
+            if (name.Contains("|"))
+            {
+                ShowAddError("Name must not contain the pipe character (|).", txtName);
+                return;
+            }
+
+            // Species
+            if (species.Length < 1 || species.Length > 30)
+            {
+                ShowAddError("Species is required and must be 1 to 30 characters.", txtSpecies);
+                return;
+            }
+            if (species.Contains("|"))
+            {
+                ShowAddError("Species must not contain the pipe character (|).", txtSpecies);
+                return;
+            }
+
+            // Age (whole number 0-100, rejects decimals and text)
+            if (!int.TryParse(ageText, System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out int age) || age < 0 || age > 100)
+            {
+                ShowAddError("Age must be a whole number between 0 and 100.", txtAge);
+                return;
+            }
+
+            // Recovery Score (whole number 0-100, rejects decimals and text)
+            if (!int.TryParse(scoreText, System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out int score) || score < 0 || score > 100)
+            {
+                ShowAddError("Recovery Score must be a whole number between 0 and 100.", txtRecoveryScore);
+                return;
+            }
+
+            try
+            {
+                // The Animal constructor runs the shared classification (Status + HousingUnit)
+                Animal animal = new Animal(id, name, species, age, score);
+
+                string line = string.Join("|", animal.AnimalID, animal.Name, animal.Species,
+                                          animal.Age, animal.RecoveryScore, animal.Status, animal.HousingUnit);
+
+                // Make sure we start on a new line if the file does not end with one
+                string current = File.Exists(reader.filepath) ? File.ReadAllText(reader.filepath) : "";
+                string prefix = (current.Length > 0 && !current.EndsWith("\n")) ? Environment.NewLine : "";
+                File.AppendAllText(reader.filepath, prefix + line + Environment.NewLine);
+
+                MessageBox.Show("Animal added successfully!\n\nID: " + animal.AnimalID +
+                                "\nName: " + animal.Name +
+                                "\nStatus: " + animal.Status +
+                                "\nHousing Unit: " + animal.HousingUnit,
+                                "Animal Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ClearForm();
+                LoadAnimals();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Could not save the record: " + ex.Message, "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("Permission denied: " + ex.Message, "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Shows a message naming the field, then returns the cursor to it
+        private void ShowAddError(string message, TextBox field)
+        {
+            MessageBox.Show(message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            field.Focus();
+            field.SelectAll();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
