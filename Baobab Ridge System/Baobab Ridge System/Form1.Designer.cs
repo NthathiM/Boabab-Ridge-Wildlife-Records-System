@@ -38,6 +38,7 @@
             btnSaveChanges = new System.Windows.Forms.Button();
             label10 = new System.Windows.Forms.Label();
             grpAnimalDetails = new System.Windows.Forms.GroupBox();
+            label9 = new System.Windows.Forms.Label();
             txtStatus = new System.Windows.Forms.TextBox();
             label8 = new System.Windows.Forms.Label();
             txtHousing = new System.Windows.Forms.TextBox();
@@ -53,6 +54,25 @@
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             btnDelete = new System.Windows.Forms.Button();
+            btngenerateSummary = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            lbl1 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            lblReleaseReadyCount = new System.Windows.Forms.Label();
+            lblRecoveringCount = new System.Windows.Forms.Label();
+            lblStableCount = new System.Windows.Forms.Label();
+            lblSeriousCount = new System.Windows.Forms.Label();
+            lblCriticalCount = new System.Windows.Forms.Label();
+            lblAvgScoreValue = new System.Windows.Forms.Label();
+            lblAvgAgeValue = new System.Windows.Forms.Label();
+            lblTotalAnimalsValue = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgvAnimals).BeginInit();
             grpAnimalDetails.SuspendLayout();
             SuspendLayout();
@@ -151,6 +171,7 @@
             // 
             // grpAnimalDetails
             // 
+            grpAnimalDetails.Controls.Add(label9);
             grpAnimalDetails.Controls.Add(txtStatus);
             grpAnimalDetails.Controls.Add(label8);
             grpAnimalDetails.Controls.Add(txtHousing);
@@ -172,6 +193,15 @@
             grpAnimalDetails.TabIndex = 22;
             grpAnimalDetails.TabStop = false;
             grpAnimalDetails.Text = "Animal Details";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(3, 29);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(67, 27);
+            label9.TabIndex = 14;
+            label9.Text = "label9";
             // 
             // txtStatus
             // 
@@ -310,20 +340,215 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new System.Drawing.Point(350, 438);
+            btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            btnDelete.Location = new System.Drawing.Point(333, 438);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new System.Drawing.Size(93, 32);
+            btnDelete.Size = new System.Drawing.Size(113, 32);
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete";
             btnDelete.UseCompatibleTextRendering = true;
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // btngenerateSummary
+            // 
+            btngenerateSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btngenerateSummary.Location = new System.Drawing.Point(173, 438);
+            btngenerateSummary.Name = "btngenerateSummary";
+            btngenerateSummary.Size = new System.Drawing.Size(154, 32);
+            btngenerateSummary.TabIndex = 24;
+            btngenerateSummary.Text = "Genarate Summary";
+            btngenerateSummary.UseVisualStyleBackColor = true;
+            btngenerateSummary.Click += btngenerateSummary_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(1072, 63);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(80, 15);
+            label11.TabIndex = 25;
+            label11.Text = "Total animals:";
+            label11.Click += label11_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(1039, 84);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(113, 15);
+            label12.TabIndex = 26;
+            label12.Text = "Average age (years):";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(1020, 113);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(132, 15);
+            label13.TabIndex = 27;
+            label13.Text = "Average recovery score:";
+            label13.Click += label13_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(1105, 143);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(47, 15);
+            label14.TabIndex = 28;
+            label14.Text = "Critical:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(1104, 169);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(48, 15);
+            label15.TabIndex = 29;
+            label15.Text = "Serious:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(1110, 199);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(42, 15);
+            label16.TabIndex = 30;
+            label16.Text = "Stable:";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(1083, 230);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(69, 15);
+            label17.TabIndex = 31;
+            label17.Text = "Recovering:";
+            // 
+            // lbl1
+            // 
+            lbl1.AutoSize = true;
+            lbl1.Location = new System.Drawing.Point(1158, 260);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new System.Drawing.Size(13, 15);
+            lbl1.TabIndex = 32;
+            lbl1.Text = "0";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new System.Drawing.Point(1092, 20);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(0, 15);
+            label19.TabIndex = 33;
+            // 
+            // lblReleaseReadyCount
+            // 
+            lblReleaseReadyCount.AutoSize = true;
+            lblReleaseReadyCount.Location = new System.Drawing.Point(1066, 260);
+            lblReleaseReadyCount.Name = "lblReleaseReadyCount";
+            lblReleaseReadyCount.Size = new System.Drawing.Size(86, 15);
+            lblReleaseReadyCount.TabIndex = 41;
+            lblReleaseReadyCount.Text = "Release-Ready:";
+            lblReleaseReadyCount.Click += lblReleaseReadyCount_Click;
+            // 
+            // lblRecoveringCount
+            // 
+            lblRecoveringCount.AutoSize = true;
+            lblRecoveringCount.Location = new System.Drawing.Point(1158, 230);
+            lblRecoveringCount.Name = "lblRecoveringCount";
+            lblRecoveringCount.Size = new System.Drawing.Size(13, 15);
+            lblRecoveringCount.TabIndex = 40;
+            lblRecoveringCount.Text = "0";
+            // 
+            // lblStableCount
+            // 
+            lblStableCount.AutoSize = true;
+            lblStableCount.Location = new System.Drawing.Point(1158, 199);
+            lblStableCount.Name = "lblStableCount";
+            lblStableCount.Size = new System.Drawing.Size(13, 15);
+            lblStableCount.TabIndex = 39;
+            lblStableCount.Text = "0";
+            // 
+            // lblSeriousCount
+            // 
+            lblSeriousCount.AutoSize = true;
+            lblSeriousCount.Location = new System.Drawing.Point(1158, 169);
+            lblSeriousCount.Name = "lblSeriousCount";
+            lblSeriousCount.Size = new System.Drawing.Size(13, 15);
+            lblSeriousCount.TabIndex = 38;
+            lblSeriousCount.Text = "0";
+            // 
+            // lblCriticalCount
+            // 
+            lblCriticalCount.AutoSize = true;
+            lblCriticalCount.Location = new System.Drawing.Point(1158, 143);
+            lblCriticalCount.Name = "lblCriticalCount";
+            lblCriticalCount.Size = new System.Drawing.Size(13, 15);
+            lblCriticalCount.TabIndex = 37;
+            lblCriticalCount.Text = "0";
+            // 
+            // lblAvgScoreValue
+            // 
+            lblAvgScoreValue.AutoSize = true;
+            lblAvgScoreValue.Location = new System.Drawing.Point(1158, 113);
+            lblAvgScoreValue.Name = "lblAvgScoreValue";
+            lblAvgScoreValue.Size = new System.Drawing.Size(29, 15);
+            lblAvgScoreValue.TabIndex = 36;
+            lblAvgScoreValue.Text = "N/A";
+            // 
+            // lblAvgAgeValue
+            // 
+            lblAvgAgeValue.AutoSize = true;
+            lblAvgAgeValue.Location = new System.Drawing.Point(1158, 84);
+            lblAvgAgeValue.Name = "lblAvgAgeValue";
+            lblAvgAgeValue.Size = new System.Drawing.Size(29, 15);
+            lblAvgAgeValue.TabIndex = 35;
+            lblAvgAgeValue.Text = "N/A";
+            // 
+            // lblTotalAnimalsValue
+            // 
+            lblTotalAnimalsValue.AutoSize = true;
+            lblTotalAnimalsValue.Location = new System.Drawing.Point(1158, 63);
+            lblTotalAnimalsValue.Name = "lblTotalAnimalsValue";
+            lblTotalAnimalsValue.Size = new System.Drawing.Size(13, 15);
+            lblTotalAnimalsValue.TabIndex = 34;
+            lblTotalAnimalsValue.Text = "0";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(1129, 24);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(58, 15);
+            label20.TabIndex = 42;
+            label20.Text = "Summary";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1011, 794);
+            ClientSize = new System.Drawing.Size(1452, 794);
+            Controls.Add(label20);
+            Controls.Add(lblReleaseReadyCount);
+            Controls.Add(lblRecoveringCount);
+            Controls.Add(lblStableCount);
+            Controls.Add(lblSeriousCount);
+            Controls.Add(lblCriticalCount);
+            Controls.Add(lblAvgScoreValue);
+            Controls.Add(lblAvgAgeValue);
+            Controls.Add(lblTotalAnimalsValue);
+            Controls.Add(label19);
+            Controls.Add(lbl1);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(btngenerateSummary);
             Controls.Add(btnDelete);
             Controls.Add(grpAnimalDetails);
             Controls.Add(label10);
@@ -374,6 +599,26 @@
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btngenerateSummary;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblReleaseReadyCount;
+        private System.Windows.Forms.Label lblRecoveringCount;
+        private System.Windows.Forms.Label lblStableCount;
+        private System.Windows.Forms.Label lblSeriousCount;
+        private System.Windows.Forms.Label lblCriticalCount;
+        private System.Windows.Forms.Label lblAvgScoreValue;
+        private System.Windows.Forms.Label lblAvgAgeValue;
+        private System.Windows.Forms.Label lblTotalAnimalsValue;
+        private System.Windows.Forms.Label label20;
     }
 }
 

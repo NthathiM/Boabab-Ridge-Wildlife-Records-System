@@ -212,8 +212,8 @@ namespace Baobab_Ridge_System
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-         // the animila specified is deleted
-        
+            // the animila specified is deleted
+
             if (dgvAnimals.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select an animal in the grid first.");
@@ -250,6 +250,63 @@ namespace Baobab_Ridge_System
             }
         }
 
+        private void btngenerateSummary_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+                // 1. load the current animals from the file
+                AnimalRead reader = new AnimalRead();
+                List<Animal> animals = reader.readAnimal(out int skippedLines);
+
+                // 2. calculate the summary
+                SummaryReport report = new SummaryReport();
+                report.Calculate(animals);
+
+                // 3. show the results on the form
+                lblTotalAnimalsValue.Text = report.TotalAnimals.ToString();
+                lblAvgAgeValue.Text = report.FormatAverage(report.AvgAge);
+                lblAvgScoreValue.Text = report.FormatAverage(report.AvgRecoveryScore);
+
+                lblCriticalCount.Text = report.StatusCounts["Critical"].ToString();
+                lblSeriousCount.Text = report.StatusCounts["Serious"].ToString();
+                lblStableCount.Text = report.StatusCounts["Stable"].ToString();
+                lblRecoveringCount.Text = report.StatusCounts["Recovering"].ToString();
+                lbl1.Text = report.StatusCounts["Release-Ready"].ToString();
+
+                // 4. save summary.txt and show the message if it failed
+                string error = report.SaveSummary();
+                if (error != "")
+                {
+                    MessageBox.Show(error);
+                }
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("The animal data file could not be read. Please check the file and try again.");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Access denied. Please check your permissions for the animal data and summary files.");
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblReleaseReadyCount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
+
 }

@@ -80,7 +80,7 @@ namespace Baobab_Ridge_System
             return report.ToString();
         }
         // formats avg to 2 decimal places
-        private string FormatAverage(double? value)
+        public string FormatAverage(double? value)
         {
             return value.HasValue? value.Value.ToString("F2",CultureInfo.InvariantCulture):"N/A";
         }
