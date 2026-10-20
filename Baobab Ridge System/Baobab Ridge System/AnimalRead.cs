@@ -131,6 +131,31 @@ namespace Baobab_Ridge_System
             File.WriteAllLines( filepath, lines );  //save the records without changing their order
         }
 
+        // delete records
+        public void DeleteAnimal(string animalID)
+        {
+            if (!File.Exists(filepath))
+            {
+                throw new FileNotFoundException("Animal data file could not be found.", filepath);
+            }
+
+            List<string> lines = File.ReadAllLines(filepath).ToList();
+            List<string> keptLines = new List<string>();
+
+            foreach (string line in lines)
+            {
+                string[] items = line.Split('|');
+
+                // keep every line EXCEPT the one whose ID matches
+                if (!items[0].Trim().Equals(animalID, StringComparison.OrdinalIgnoreCase))
+                {
+                    keptLines.Add(line);
+                }
+            }
+
+            File.WriteAllLines(filepath, keptLines);
+        }
+
 
     }
 }

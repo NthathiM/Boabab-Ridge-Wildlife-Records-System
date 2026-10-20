@@ -28,309 +28,536 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvAnimals = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearchID = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.grpAnimalDetails = new System.Windows.Forms.GroupBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtHousing = new System.Windows.Forms.TextBox();
-            this.txtAge = new System.Windows.Forms.TextBox();
-            this.txtRecoveryScore = new System.Windows.Forms.TextBox();
-            this.txtSpecies = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtAnimalID = new System.Windows.Forms.TextBox();
-            this.label = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimals)).BeginInit();
-            this.grpAnimalDetails.SuspendLayout();
-            this.SuspendLayout();
+            dgvAnimals = new System.Windows.Forms.DataGridView();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            txtSearchID = new System.Windows.Forms.TextBox();
+            btnSearch = new System.Windows.Forms.Button();
+            btnClear = new System.Windows.Forms.Button();
+            btnAdd = new System.Windows.Forms.Button();
+            btnSaveChanges = new System.Windows.Forms.Button();
+            label10 = new System.Windows.Forms.Label();
+            grpAnimalDetails = new System.Windows.Forms.GroupBox();
+            txtStatus = new System.Windows.Forms.TextBox();
+            label8 = new System.Windows.Forms.Label();
+            txtHousing = new System.Windows.Forms.TextBox();
+            txtAge = new System.Windows.Forms.TextBox();
+            txtRecoveryScore = new System.Windows.Forms.TextBox();
+            txtSpecies = new System.Windows.Forms.TextBox();
+            txtName = new System.Windows.Forms.TextBox();
+            txtAnimalID = new System.Windows.Forms.TextBox();
+            label = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            btnDelete = new System.Windows.Forms.Button();
+            btngenerateSummary = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            lbl1 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            lblReleaseReadyCount = new System.Windows.Forms.Label();
+            lblRecoveringCount = new System.Windows.Forms.Label();
+            lblStableCount = new System.Windows.Forms.Label();
+            lblSeriousCount = new System.Windows.Forms.Label();
+            lblCriticalCount = new System.Windows.Forms.Label();
+            lblAvgScoreValue = new System.Windows.Forms.Label();
+            lblAvgAgeValue = new System.Windows.Forms.Label();
+            lblTotalAnimalsValue = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)dgvAnimals).BeginInit();
+            grpAnimalDetails.SuspendLayout();
+            SuspendLayout();
             // 
             // dgvAnimals
             // 
-            this.dgvAnimals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnimals.Location = new System.Drawing.Point(45, 567);
-            this.dgvAnimals.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvAnimals.Name = "dgvAnimals";
-            this.dgvAnimals.RowHeadersWidth = 51;
-            this.dgvAnimals.Size = new System.Drawing.Size(1038, 250);
-            this.dgvAnimals.TabIndex = 0;
-            this.dgvAnimals.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnimals_CellClick);
+            dgvAnimals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAnimals.Location = new System.Drawing.Point(39, 532);
+            dgvAnimals.Margin = new System.Windows.Forms.Padding(4);
+            dgvAnimals.Name = "dgvAnimals";
+            dgvAnimals.RowHeadersWidth = 51;
+            dgvAnimals.Size = new System.Drawing.Size(908, 234);
+            dgvAnimals.TabIndex = 0;
+            dgvAnimals.CellClick += dgvAnimals_CellClick;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(438, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Baobab Ridge Wildlife Records";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label1.Location = new System.Drawing.Point(33, 8);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(344, 31);
+            label1.TabIndex = 1;
+            label1.Text = "Baobab Ridge Wildlife Records";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Search animal by ID";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label2.Location = new System.Drawing.Point(37, 63);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(117, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Search animal by ID";
             // 
             // txtSearchID
             // 
-            this.txtSearchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchID.Location = new System.Drawing.Point(45, 90);
-            this.txtSearchID.Name = "txtSearchID";
-            this.txtSearchID.Size = new System.Drawing.Size(756, 27);
-            this.txtSearchID.TabIndex = 3;
+            txtSearchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtSearchID.Location = new System.Drawing.Point(39, 84);
+            txtSearchID.Name = "txtSearchID";
+            txtSearchID.Size = new System.Drawing.Size(662, 23);
+            txtSearchID.TabIndex = 3;
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(827, 90);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(125, 34);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnSearch.Location = new System.Drawing.Point(724, 84);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new System.Drawing.Size(109, 32);
+            btnSearch.TabIndex = 4;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnClear
             // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(517, 467);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(129, 34);
-            this.btnClear.TabIndex = 18;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnClear.Location = new System.Drawing.Point(452, 438);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new System.Drawing.Size(113, 32);
+            btnClear.TabIndex = 18;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(652, 467);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(139, 34);
-            this.btnAdd.TabIndex = 19;
-            this.btnAdd.Text = "Add Animal";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnAdd.Location = new System.Drawing.Point(570, 438);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new System.Drawing.Size(122, 32);
+            btnAdd.TabIndex = 19;
+            btnAdd.Text = "Add Animal";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.Location = new System.Drawing.Point(797, 467);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(168, 34);
-            this.btnSaveChanges.TabIndex = 20;
-            this.btnSaveChanges.Text = "Save Changes";
-            this.btnSaveChanges.UseVisualStyleBackColor = true;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnSaveChanges.Location = new System.Drawing.Point(697, 438);
+            btnSaveChanges.Name = "btnSaveChanges";
+            btnSaveChanges.Size = new System.Drawing.Size(147, 32);
+            btnSaveChanges.TabIndex = 20;
+            btnSaveChanges.Text = "Save Changes";
+            btnSaveChanges.UseVisualStyleBackColor = true;
+            btnSaveChanges.Click += btnSaveChanges_Click;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 536);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 16);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Animal records table";
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(40, 502);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(116, 15);
+            label10.TabIndex = 21;
+            label10.Text = "Animal records table";
             // 
             // grpAnimalDetails
             // 
-            this.grpAnimalDetails.Controls.Add(this.txtStatus);
-            this.grpAnimalDetails.Controls.Add(this.label8);
-            this.grpAnimalDetails.Controls.Add(this.txtHousing);
-            this.grpAnimalDetails.Controls.Add(this.txtAge);
-            this.grpAnimalDetails.Controls.Add(this.txtRecoveryScore);
-            this.grpAnimalDetails.Controls.Add(this.txtSpecies);
-            this.grpAnimalDetails.Controls.Add(this.txtName);
-            this.grpAnimalDetails.Controls.Add(this.txtAnimalID);
-            this.grpAnimalDetails.Controls.Add(this.label);
-            this.grpAnimalDetails.Controls.Add(this.label7);
-            this.grpAnimalDetails.Controls.Add(this.label6);
-            this.grpAnimalDetails.Controls.Add(this.label5);
-            this.grpAnimalDetails.Controls.Add(this.label4);
-            this.grpAnimalDetails.Controls.Add(this.label3);
-            this.grpAnimalDetails.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAnimalDetails.Location = new System.Drawing.Point(45, 137);
-            this.grpAnimalDetails.Name = "grpAnimalDetails";
-            this.grpAnimalDetails.Size = new System.Drawing.Size(920, 317);
-            this.grpAnimalDetails.TabIndex = 22;
-            this.grpAnimalDetails.TabStop = false;
-            this.grpAnimalDetails.Text = "Animal Details";
+            grpAnimalDetails.Controls.Add(txtStatus);
+            grpAnimalDetails.Controls.Add(label8);
+            grpAnimalDetails.Controls.Add(txtHousing);
+            grpAnimalDetails.Controls.Add(txtAge);
+            grpAnimalDetails.Controls.Add(txtRecoveryScore);
+            grpAnimalDetails.Controls.Add(txtSpecies);
+            grpAnimalDetails.Controls.Add(txtName);
+            grpAnimalDetails.Controls.Add(txtAnimalID);
+            grpAnimalDetails.Controls.Add(label);
+            grpAnimalDetails.Controls.Add(label7);
+            grpAnimalDetails.Controls.Add(label6);
+            grpAnimalDetails.Controls.Add(label5);
+            grpAnimalDetails.Controls.Add(label4);
+            grpAnimalDetails.Controls.Add(label3);
+            grpAnimalDetails.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
+            grpAnimalDetails.Location = new System.Drawing.Point(39, 128);
+            grpAnimalDetails.Name = "grpAnimalDetails";
+            grpAnimalDetails.Size = new System.Drawing.Size(805, 297);
+            grpAnimalDetails.TabIndex = 22;
+            grpAnimalDetails.TabStop = false;
+            grpAnimalDetails.Text = "Animal Details";
             // 
             // txtStatus
             // 
-            this.txtStatus.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(6, 263);
-            this.txtStatus.MaxLength = 3;
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(403, 28);
-            this.txtStatus.TabIndex = 13;
+            txtStatus.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtStatus.Location = new System.Drawing.Point(5, 247);
+            txtStatus.MaxLength = 3;
+            txtStatus.Name = "txtStatus";
+            txtStatus.ReadOnly = true;
+            txtStatus.Size = new System.Drawing.Size(353, 24);
+            txtStatus.TabIndex = 13;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 239);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 21);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Status";
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label8.Location = new System.Drawing.Point(5, 224);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(43, 17);
+            label8.TabIndex = 12;
+            label8.Text = "Status";
             // 
             // txtHousing
             // 
-            this.txtHousing.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHousing.Location = new System.Drawing.Point(431, 200);
-            this.txtHousing.Name = "txtHousing";
-            this.txtHousing.ReadOnly = true;
-            this.txtHousing.Size = new System.Drawing.Size(443, 28);
-            this.txtHousing.TabIndex = 11;
-            this.txtHousing.TabStop = false;
+            txtHousing.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtHousing.Location = new System.Drawing.Point(377, 188);
+            txtHousing.Name = "txtHousing";
+            txtHousing.ReadOnly = true;
+            txtHousing.Size = new System.Drawing.Size(388, 24);
+            txtHousing.TabIndex = 11;
+            txtHousing.TabStop = false;
             // 
             // txtAge
             // 
-            this.txtAge.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAge.Location = new System.Drawing.Point(431, 131);
-            this.txtAge.MaxLength = 3;
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(443, 28);
-            this.txtAge.TabIndex = 10;
+            txtAge.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtAge.Location = new System.Drawing.Point(377, 123);
+            txtAge.MaxLength = 3;
+            txtAge.Name = "txtAge";
+            txtAge.Size = new System.Drawing.Size(388, 24);
+            txtAge.TabIndex = 10;
             // 
             // txtRecoveryScore
             // 
-            this.txtRecoveryScore.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRecoveryScore.Location = new System.Drawing.Point(6, 193);
-            this.txtRecoveryScore.MaxLength = 3;
-            this.txtRecoveryScore.Name = "txtRecoveryScore";
-            this.txtRecoveryScore.Size = new System.Drawing.Size(403, 28);
-            this.txtRecoveryScore.TabIndex = 9;
+            txtRecoveryScore.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtRecoveryScore.Location = new System.Drawing.Point(5, 181);
+            txtRecoveryScore.MaxLength = 3;
+            txtRecoveryScore.Name = "txtRecoveryScore";
+            txtRecoveryScore.Size = new System.Drawing.Size(353, 24);
+            txtRecoveryScore.TabIndex = 9;
             // 
             // txtSpecies
             // 
-            this.txtSpecies.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSpecies.Location = new System.Drawing.Point(6, 126);
-            this.txtSpecies.MaxLength = 30;
-            this.txtSpecies.Name = "txtSpecies";
-            this.txtSpecies.Size = new System.Drawing.Size(403, 28);
-            this.txtSpecies.TabIndex = 8;
+            txtSpecies.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtSpecies.Location = new System.Drawing.Point(5, 118);
+            txtSpecies.MaxLength = 30;
+            txtSpecies.Name = "txtSpecies";
+            txtSpecies.Size = new System.Drawing.Size(353, 24);
+            txtSpecies.TabIndex = 8;
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(431, 66);
-            this.txtName.MaxLength = 30;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(443, 28);
-            this.txtName.TabIndex = 7;
+            txtName.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtName.Location = new System.Drawing.Point(377, 62);
+            txtName.MaxLength = 30;
+            txtName.Name = "txtName";
+            txtName.Size = new System.Drawing.Size(388, 24);
+            txtName.TabIndex = 7;
             // 
             // txtAnimalID
             // 
-            this.txtAnimalID.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnimalID.Location = new System.Drawing.Point(6, 66);
-            this.txtAnimalID.MaxLength = 7;
-            this.txtAnimalID.Name = "txtAnimalID";
-            this.txtAnimalID.Size = new System.Drawing.Size(403, 28);
-            this.txtAnimalID.TabIndex = 6;
+            txtAnimalID.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtAnimalID.Location = new System.Drawing.Point(5, 62);
+            txtAnimalID.MaxLength = 7;
+            txtAnimalID.Name = "txtAnimalID";
+            txtAnimalID.Size = new System.Drawing.Size(353, 24);
+            txtAnimalID.TabIndex = 6;
             // 
             // label
             // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(427, 169);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(67, 21);
-            this.label.TabIndex = 5;
-            this.label.Text = "Housing";
+            label.AutoSize = true;
+            label.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label.Location = new System.Drawing.Point(374, 158);
+            label.Name = "label";
+            label.Size = new System.Drawing.Size(53, 17);
+            label.TabIndex = 5;
+            label.Text = "Housing";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(427, 107);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 21);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Age";
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label7.Location = new System.Drawing.Point(374, 100);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(30, 17);
+            label7.TabIndex = 4;
+            label7.Text = "Age";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(427, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 21);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Name";
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label6.Location = new System.Drawing.Point(374, 38);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(42, 17);
+            label6.TabIndex = 3;
+            label6.Text = "Name";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Species";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label5.Location = new System.Drawing.Point(5, 96);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(49, 17);
+            label5.TabIndex = 2;
+            label5.Text = "Species";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 169);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 21);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Recovery Score";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label4.Location = new System.Drawing.Point(5, 158);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(94, 17);
+            label4.TabIndex = 1;
+            label4.Text = "Recovery Score";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 21);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Animal ID";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label3.Location = new System.Drawing.Point(5, 38);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(63, 17);
+            label3.TabIndex = 0;
+            label3.Text = "Animal ID";
+            // 
+            // btnDelete
+            // 
+            btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            btnDelete.Location = new System.Drawing.Point(333, 438);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new System.Drawing.Size(113, 32);
+            btnDelete.TabIndex = 23;
+            btnDelete.Text = "Delete";
+            btnDelete.UseCompatibleTextRendering = true;
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btngenerateSummary
+            // 
+            btngenerateSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btngenerateSummary.Location = new System.Drawing.Point(173, 438);
+            btngenerateSummary.Name = "btngenerateSummary";
+            btngenerateSummary.Size = new System.Drawing.Size(154, 32);
+            btngenerateSummary.TabIndex = 24;
+            btngenerateSummary.Text = "Genarate Summary";
+            btngenerateSummary.UseVisualStyleBackColor = true;
+            btngenerateSummary.Click += btngenerateSummary_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(1072, 63);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(80, 15);
+            label11.TabIndex = 25;
+            label11.Text = "Total animals:";
+            label11.Click += label11_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(1039, 84);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(113, 15);
+            label12.TabIndex = 26;
+            label12.Text = "Average age (years):";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(1020, 113);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(132, 15);
+            label13.TabIndex = 27;
+            label13.Text = "Average recovery score:";
+            label13.Click += label13_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(1105, 143);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(47, 15);
+            label14.TabIndex = 28;
+            label14.Text = "Critical:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(1104, 169);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(48, 15);
+            label15.TabIndex = 29;
+            label15.Text = "Serious:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(1110, 199);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(42, 15);
+            label16.TabIndex = 30;
+            label16.Text = "Stable:";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(1083, 230);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(69, 15);
+            label17.TabIndex = 31;
+            label17.Text = "Recovering:";
+            // 
+            // lbl1
+            // 
+            lbl1.AutoSize = true;
+            lbl1.Location = new System.Drawing.Point(1158, 260);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new System.Drawing.Size(13, 15);
+            lbl1.TabIndex = 32;
+            lbl1.Text = "0";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new System.Drawing.Point(1092, 20);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(0, 15);
+            label19.TabIndex = 33;
+            // 
+            // lblReleaseReadyCount
+            // 
+            lblReleaseReadyCount.AutoSize = true;
+            lblReleaseReadyCount.Location = new System.Drawing.Point(1066, 260);
+            lblReleaseReadyCount.Name = "lblReleaseReadyCount";
+            lblReleaseReadyCount.Size = new System.Drawing.Size(86, 15);
+            lblReleaseReadyCount.TabIndex = 41;
+            lblReleaseReadyCount.Text = "Release-Ready:";
+            lblReleaseReadyCount.Click += lblReleaseReadyCount_Click;
+            // 
+            // lblRecoveringCount
+            // 
+            lblRecoveringCount.AutoSize = true;
+            lblRecoveringCount.Location = new System.Drawing.Point(1158, 230);
+            lblRecoveringCount.Name = "lblRecoveringCount";
+            lblRecoveringCount.Size = new System.Drawing.Size(13, 15);
+            lblRecoveringCount.TabIndex = 40;
+            lblRecoveringCount.Text = "0";
+            // 
+            // lblStableCount
+            // 
+            lblStableCount.AutoSize = true;
+            lblStableCount.Location = new System.Drawing.Point(1158, 199);
+            lblStableCount.Name = "lblStableCount";
+            lblStableCount.Size = new System.Drawing.Size(13, 15);
+            lblStableCount.TabIndex = 39;
+            lblStableCount.Text = "0";
+            // 
+            // lblSeriousCount
+            // 
+            lblSeriousCount.AutoSize = true;
+            lblSeriousCount.Location = new System.Drawing.Point(1158, 169);
+            lblSeriousCount.Name = "lblSeriousCount";
+            lblSeriousCount.Size = new System.Drawing.Size(13, 15);
+            lblSeriousCount.TabIndex = 38;
+            lblSeriousCount.Text = "0";
+            // 
+            // lblCriticalCount
+            // 
+            lblCriticalCount.AutoSize = true;
+            lblCriticalCount.Location = new System.Drawing.Point(1158, 143);
+            lblCriticalCount.Name = "lblCriticalCount";
+            lblCriticalCount.Size = new System.Drawing.Size(13, 15);
+            lblCriticalCount.TabIndex = 37;
+            lblCriticalCount.Text = "0";
+            // 
+            // lblAvgScoreValue
+            // 
+            lblAvgScoreValue.AutoSize = true;
+            lblAvgScoreValue.Location = new System.Drawing.Point(1158, 113);
+            lblAvgScoreValue.Name = "lblAvgScoreValue";
+            lblAvgScoreValue.Size = new System.Drawing.Size(29, 15);
+            lblAvgScoreValue.TabIndex = 36;
+            lblAvgScoreValue.Text = "N/A";
+            // 
+            // lblAvgAgeValue
+            // 
+            lblAvgAgeValue.AutoSize = true;
+            lblAvgAgeValue.Location = new System.Drawing.Point(1158, 84);
+            lblAvgAgeValue.Name = "lblAvgAgeValue";
+            lblAvgAgeValue.Size = new System.Drawing.Size(29, 15);
+            lblAvgAgeValue.TabIndex = 35;
+            lblAvgAgeValue.Text = "N/A";
+            // 
+            // lblTotalAnimalsValue
+            // 
+            lblTotalAnimalsValue.AutoSize = true;
+            lblTotalAnimalsValue.Location = new System.Drawing.Point(1158, 63);
+            lblTotalAnimalsValue.Name = "lblTotalAnimalsValue";
+            lblTotalAnimalsValue.Size = new System.Drawing.Size(13, 15);
+            lblTotalAnimalsValue.TabIndex = 34;
+            lblTotalAnimalsValue.Text = "0";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(1129, 24);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(58, 15);
+            label20.TabIndex = 42;
+            label20.Text = "Summary";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 847);
-            this.Controls.Add(this.grpAnimalDetails);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.btnSaveChanges);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearchID);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvAnimals);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimals)).EndInit();
-            this.grpAnimalDetails.ResumeLayout(false);
-            this.grpAnimalDetails.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1452, 794);
+            Controls.Add(label20);
+            Controls.Add(lblReleaseReadyCount);
+            Controls.Add(lblRecoveringCount);
+            Controls.Add(lblStableCount);
+            Controls.Add(lblSeriousCount);
+            Controls.Add(lblCriticalCount);
+            Controls.Add(lblAvgScoreValue);
+            Controls.Add(lblAvgAgeValue);
+            Controls.Add(lblTotalAnimalsValue);
+            Controls.Add(label19);
+            Controls.Add(lbl1);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(btngenerateSummary);
+            Controls.Add(btnDelete);
+            Controls.Add(grpAnimalDetails);
+            Controls.Add(label10);
+            Controls.Add(btnSaveChanges);
+            Controls.Add(btnAdd);
+            Controls.Add(btnClear);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearchID);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(dgvAnimals);
+            Margin = new System.Windows.Forms.Padding(4);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvAnimals).EndInit();
+            grpAnimalDetails.ResumeLayout(false);
+            grpAnimalDetails.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -360,6 +587,26 @@
         private System.Windows.Forms.TextBox txtAnimalID;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btngenerateSummary;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblReleaseReadyCount;
+        private System.Windows.Forms.Label lblRecoveringCount;
+        private System.Windows.Forms.Label lblStableCount;
+        private System.Windows.Forms.Label lblSeriousCount;
+        private System.Windows.Forms.Label lblCriticalCount;
+        private System.Windows.Forms.Label lblAvgScoreValue;
+        private System.Windows.Forms.Label lblAvgAgeValue;
+        private System.Windows.Forms.Label lblTotalAnimalsValue;
+        private System.Windows.Forms.Label label20;
     }
 }
 
